@@ -1,0 +1,49 @@
+body {
+    display: grid;
+    row-gap: 100px;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-content: center; /* Center the grid vertically */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    font-weight: bold;
+    color: black;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.playBtn, .rulesBtn {
+    text-align: center;
+}
+
+#playBtn, #rulesBtn {
+    width: 100%;
+    padding: 15px 20px; /* Add padding for better appearance */
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#playBtn:hover, #rulesBtn:hover {
+    background-color: #0056b3;
+}
+
+.pokemonImgContainer {
+    text-align: center;
+    width: 678.84px; 
+    height: 300px; 
+}
+
+.pokemonImg{
+    height: 300px;
+    width: 300px;
+}

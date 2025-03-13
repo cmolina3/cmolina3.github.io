@@ -23,6 +23,7 @@ async function displayPokemonImage() {
         return;
     }
     const imgElement = document.createElement('img');
+    imgElement.classList.add('pokemonImg');
     imgElement.src = spriteUrl;
     imgElement.alt = 'No Sprite Found';
 
