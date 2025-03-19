@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PokeNamer</title>
+    <link rel="stylesheet" href="gameOver.css">
   </head>
   <body>
-    <h1>GAME OVER</h1>
-    <h2>Final Score:<span id="scoreElement"></span></h2>
+    <div class="divPadding"><h1 id="gameOver">GAME OVER</h1></div>
+    <div class="divPadding"><h2 id="finalScore">Final Score: <span id="scoreElement"></span></h2></div>
+    <div class="divPadding"><button id="mainMenu" onclick="gameScoreReset()">Main Menu</button></div>
     <script src="index.js"></script>
   </body>
 </html>

@@ -12,6 +12,10 @@ function updateScoreElement(){
 function clearAnswerArea(){
     document.getElementById('answerArea').value = '';
 }
+function gameScoreReset(){
+    localStorage.setItem("score", 0);
+    window.location.href = "index.html";
+}
 
 function incorrectAnswer(){
     const mistakes = document.querySelectorAll('.X')
