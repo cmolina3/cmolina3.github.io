@@ -1,4 +1,33 @@
 let intervalID;
+let currentPokemon = null;
+let score = 0;
+let errorCounter = 0;
+
+function updateScoreElement(){
+    const scoreElement = document.getElementById('scoreElement');
+    let persistentScore = localStorage.getItem("score"); //this grabs the persistent score made in guessPokemon()
+    scoreElement.textContent = persistentScore;
+}
+
+function clearAnswerArea(){
+    document.getElementById('answerArea').value = '';
+}
+
+function incorrectAnswer(){
+    const mistakes = document.querySelectorAll('.X')
+    if(errorCounter == 3){
+        window.location.href = "gameOver.html";
+    }
+    else{
+        mistakes.forEach(mistake => {
+            if(errorCounter >= mistake.getAttribute('data-value')){
+                mistake.classList.add('highlighted')
+            }
+        });
+        clearAnswerArea();
+        displayPokemonImage();
+    }
+}
 
 async function getRandomPokemonSprite(){
     const randomPokemon = Math.floor(Math.random() * 1025) + 1;
@@ -7,7 +36,8 @@ async function getRandomPokemonSprite(){
     if(!pokemonPromise.ok){
         throw new Error('Failed to fetch Pokemon Data');
     }
-    const pokemonData = await pokemonPromise.json(); 
+    const pokemonData = await pokemonPromise.json();
+    currentPokemon = pokemonData.species.name; 
     return pokemonData.sprites.front_default;
     }
     catch(error){
@@ -27,13 +57,27 @@ async function displayPokemonImage() {
     imgElement.src = spriteUrl;
     imgElement.alt = 'No Sprite Found';
 
-    const container = document.getElementById('pokemon-image-container');
+    const container = document.getElementById('pokemonImageContainer');
     if(!container.firstChild){
         container.appendChild(imgElement);
     }
     else{
         container.removeChild(container.firstChild);
         container.appendChild(imgElement);
+    }
+}
+function guessPokemon(){
+    let guess = document.getElementById("answerArea").value.toLowerCase();
+    if(guess == currentPokemon){
+        score += 100;
+        localStorage.setItem("score",score);// this enables score to persist to other pages
+        updateScoreElement();
+        clearAnswerArea();
+        displayPokemonImage();
+    }
+    else{
+        errorCounter += 1;
+        incorrectAnswer();
     }
 }
 
@@ -54,7 +98,15 @@ function stopSpriteRefresh(){
     }
     clearInterval(intervalID);
     intervalID = null;
-    const container = document.getElementById('pokemon-image-container');
+    const container = document.getElementById('pokemonImageContainer');
     container.removeChild(container.firstChild);
 }
-refreshPokemon();
+if(window.location.pathname.endsWith('index.html')){
+    refreshPokemon();
+}
+else if(window.location.pathname.endsWith('gameOver.html')){
+    updateScoreElement();
+}
+else{
+    displayPokemonImage();
+}

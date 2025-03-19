@@ -1,0 +1,78 @@
+.gameElements{
+    display: grid;
+    row-gap: 50px;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-content: center; 
+    max-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.pokemonImgContainer {
+    text-align: center;
+    width: 678.84px; 
+    height: 300px; 
+}
+
+.pokemonImg{
+    height: 300px;
+    width: 300px;
+}
+#gameHeader{
+    text-align: center;
+}
+#score{
+    font-weight: bold;
+    font-size: large;
+}
+
+#backBtn{
+    display: inline-block;
+    width: 10%;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    font-family: Times New Roman, serif;
+}
+#submitBtn{
+    width: 100%;
+    padding: 15px 20px; 
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: Times New Roman, serif;
+}
+.mistakes{
+    text-align: center;
+    font-size: large;
+}
+.X{
+    padding-left: 10px;
+}
+#answerArea{
+    resize: none;
+    font-size: 20px;
+    height: 25px;
+}
+
+#backBtn:hover, #submitBtn:hover{
+    background-color: #0056b3;
+}
+.highlighted{
+    color: red;
+}

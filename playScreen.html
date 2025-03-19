@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PokeNamer</title>
+    <link rel="stylesheet" href="playScreen.css">
+  </head>
+  <body>
+    <div class="gameElements">
+        <h1 id="gameHeader">NAME THIS POKEMON!</h1>
+        <div id="score">Score: <span id="scoreElement">0</span> </div>
+        <div id="pokemonImageContainer" class="pokemonImgContainer"></div>
+        <textarea id="answerArea" spellcheck="false"></textarea>
+        <button id="submitBtn" onclick="guessPokemon()">Submit</button>
+        <div class="mistakes">
+            <span class="X" data-value="1">X</span>
+            <span class="X" data-value="2">X</span>
+            <span class="X" data-value="3">X</span>
+        </div>
+    </div>
+    <a href="index.html" id="backBtn">Back</a>
+    <script src="index.js"></script>
+  </body>
+</html>

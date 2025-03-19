@@ -3,7 +3,7 @@ body {
     row-gap: 100px;
     grid-template-columns: auto;
     justify-content: center;
-    align-content: center; /* Center the grid vertically */
+    align-content: center; 
     min-height: 100vh;
     margin: 0;
     padding: 20px;
@@ -24,7 +24,7 @@ body {
 #playBtn, #rulesBtn {
     display: inline-block;
     width: 100%;
-    padding: 15px 20px; /* Add padding for better appearance */
+    padding: 15px 20px; 
     font-size: 16px;
     cursor: pointer;
     border: none;
@@ -34,6 +34,7 @@ body {
     transition: background-color 0.3s ease;
     text-decoration: none;
     text-align: center;
+    font-family: Times New Roman, serif;
 }
 
 #playBtn:hover, #rulesBtn:hover {
