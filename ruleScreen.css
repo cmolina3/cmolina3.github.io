@@ -1,0 +1,38 @@
+body{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    min-height: 90vh;
+    min-width: 100vh;
+}
+.divStyles{
+    text-align: center;
+}
+#rulesHeader{
+    font-size: 50px;
+}
+#rules{
+    width: 100%;
+    margin: auto;
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+#mainMenu{
+    display: inline-block;
+    width: 50%;
+    padding: 15px 20px; 
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    font-family: Times New Roman, serif;
+}
+
+#mainMenu:hover{
+    background-color: #0056b3;
+}
