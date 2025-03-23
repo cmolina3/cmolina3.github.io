@@ -105,12 +105,12 @@ function stopSpriteRefresh(){
     const container = document.getElementById('pokemonImageContainer');
     container.removeChild(container.firstChild);
 }
-if(window.location.pathname.endsWith('index.html')){
-    refreshPokemon();
+if(window.location.pathname.endsWith('playScreen.html')){
+    displayPokemonImage();
 }
 else if(window.location.pathname.endsWith('gameOver.html')){
     updateScoreElement();
 }
 else{
-    displayPokemonImage();
+    refreshPokemon();
 }
