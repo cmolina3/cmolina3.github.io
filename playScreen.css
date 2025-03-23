@@ -76,3 +76,30 @@
 .highlighted{
     color: red;
 }
+
+/* Media Query for Height Adjustments */
+@media (max-height: 800px) {
+    .gameElements{
+        row-gap: 25px;
+    }
+    .pokemonImgContainer{
+        height: 200px;
+    }
+   .pokemonImg{
+        height: 200px;
+        width: 200px;
+   }
+}
+
+@media (max-height: 600px) {
+    .gameElements{
+        row-gap: 10px;
+    }
+    .pokemonImgContainer{
+        height: 100px;
+    }
+   .pokemonImg{
+        height: 100px;
+        width: 100px;
+   }
+}

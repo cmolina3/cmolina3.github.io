@@ -48,53 +48,30 @@ body {
 }
 
 .pokemonImg{
+    text-align: center;
     height: 300px;
     width: 300px;
 }
-/* Media Queries for Responsive Design */
 
-/* For screens smaller than 768px (e.g., tablets) */
-@media (max-width: 768px) {
+/* Media Query for Height Adjustments */
+@media (max-height: 800px) {
     body {
-        row-gap: 30px; /* Further reduce gap for smaller screens */
-        padding: 10px; /* Reduce padding */
+        row-gap: 4vh; 
+        padding: 1.5vh; 
     }
 
     .header {
-        font-size: x-large; /* Reduce font size */
-    }
-
-    #playBtn, #rulesBtn {
-        padding: 10px 15px; /* Reduce button padding */
-        font-size: 14px; /* Reduce button font size */
-    }
-
-    .pokemonImgContainer {
-        max-width: 100%; /* Allow container to take full width */
-    }
-
-    .pokemonImg {
-        max-width: 250px; /* Reduce image size */
+        font-size: 4vh; 
     }
 }
 
-/* For screens smaller than 480px (e.g., mobile phones) */
-@media (max-width: 480px) {
+@media (max-height: 600px) {
     body {
-        row-gap: 20px; /* Further reduce gap for mobile screens */
-        padding: 5px; /* Reduce padding */
+        row-gap: 3vh; 
+        padding: 1vh;
     }
 
     .header {
-        font-size: large; /* Further reduce font size */
-    }
-
-    #playBtn, #rulesBtn {
-        padding: 8px 12px; /* Further reduce button padding */
-        font-size: 12px; /* Further reduce button font size */
-    }
-
-    .pokemonImg {
-        max-width: 200px; /* Further reduce image size */
+        font-size: 3vh; 
     }
 }
