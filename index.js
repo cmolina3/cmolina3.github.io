@@ -105,6 +105,30 @@ function stopSpriteRefresh(){
     const container = document.getElementById('pokemonImageContainer');
     container.removeChild(container.firstChild);
 }
+
+async function submitScore() {
+    var username = document.getElementById("usernameArea").value;
+    var persistentScore = localStorage.getItem("score");
+    alert(persistentScore);
+    await fetch('add_score.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username,score: persistentScore})
+    });
+}
+
+async function loadLeaderBoard(){
+    const response = await fetch('get_leaderboard.php');
+    const data = await response.json();
+    const list = document.getElementById('leaderboard');
+    list.innerHTML = '';
+      data.forEach(entry => {
+        const li = document.createElement('li');
+        li.textContent = `${entry.username}: ${entry.score}`;
+        list.appendChild(li);
+      });
+}
+
 if(window.location.pathname.endsWith('index.html')){
     refreshPokemon();
 }

@@ -15,8 +15,13 @@ body{
 #finalScore{
     font-size: 50px;
 }
+#usernameArea{
+    width: 100%;
+    font-size: large;
+    height: 20px;
+}
 
-#mainMenu{
+#mainMenu,#scoreBtn{
     width: 100%;
     padding: 30px; 
     font-size: 20px;
@@ -29,8 +34,12 @@ body{
     font-family: Times New Roman, serif;
 }
 
-#mainMenu:hover{
+#mainMenu:hover, #scoreBtn:hover{
     background-color: #0056b3;
+}
+
+#scoreBtn:disabled{
+    background-color: black;
 }
 
 @media (max-height: 600px){
