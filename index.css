@@ -1,14 +1,30 @@
 body {
     display: grid;
-    row-gap: 100px;
-    grid-template-columns: auto;
-    justify-content: center;
-    align-content: center; 
+    grid-template-columns: auto 1fr; /* Leaderboard left, main content center */
     min-height: 100vh;
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
 }
+
+
+#leaderboard {
+    align-self: start;
+    justify-self: start;
+    list-style-type: none;
+    font-size: xx-large;
+}
+
+
+
+.mainContent {
+    display: grid;
+    row-gap: 50px;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-content: center;
+}
+
 
 .header {
     font-weight: bold;
@@ -21,7 +37,7 @@ body {
     text-align: center;
 }
 
-#playBtn, #rulesBtn {
+#playBtn, #rulesBtn, #optionsBtn{
     display: inline-block;
     width: 100%;
     padding: 15px 20px; 
@@ -37,9 +53,10 @@ body {
     font-family: Times New Roman, serif;
 }
 
-#playBtn:hover, #rulesBtn:hover {
+#playBtn:hover, #rulesBtn:hover,#optionsBtn:hover {
     background-color: #0056b3;
 }
+
 
 .pokemonImgContainer {
     text-align: center;

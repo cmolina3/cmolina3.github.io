@@ -7,7 +7,7 @@ $result = $conn->query($sql);
 $scores = [];
 
 if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) { 
         $scores[] = $row;
     }
 }

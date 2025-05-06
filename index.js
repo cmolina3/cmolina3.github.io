@@ -34,7 +34,44 @@ function incorrectAnswer(){
 }
 
 async function getRandomPokemonSprite(){
-    const randomPokemon = Math.floor(Math.random() * 1025) + 1;
+    const generationsSelected = localStorage.getItem("generations");
+    let gen = 0;
+    let randomPokemon = null;
+    if(window.location.pathname.endsWith('playScreen.html')){
+        gen = generationsSelected[Math.floor(Math.random() * generationsSelected.length - 1)];
+    }
+    switch(gen){
+        case "1":
+            randomPokemon = Math.floor(Math.random() * 151) + 1; //range 1 - 151
+            break;
+        case "2":
+            randomPokemon = Math.floor(Math.random() * 100) + 152;//range 152-251 
+            break;
+        case "3":
+            randomPokemon = Math.floor(Math.random() * 135) + 252;//range 252-386
+            break;
+        case "4":
+            randomPokemon = Math.floor(Math.random() * 107) + 387;//range 387-493
+            break;
+        case "5":
+            randomPokemon = Math.floor(Math.random() * 156) + 494;//range 494-649
+            break;
+        case "6":
+            randomPokemon = Math.floor(Math.random() * 72) + 650;//range 650-721
+            break;
+        case "7":
+            randomPokemon = Math.floor(Math.random() * 88) + 722;//range 722-809
+            break;
+        case "8":
+            randomPokemon = Math.floor(Math.random() * 96) + 810;//range 810-905
+            break;
+        case "9":
+            randomPokemon = Math.floor(Math.random() * 120) + 906;//range 906-1025
+            break;
+        default:
+            randomPokemon = Math.floor(Math.random() * 1025) + 1;//range 1-1025
+            break;            
+    }
     try{
     const pokemonPromise = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemon}`);
     if(!pokemonPromise.ok){
@@ -109,12 +146,12 @@ function stopSpriteRefresh(){
 async function submitScore() {
     var username = document.getElementById("usernameArea").value;
     var persistentScore = localStorage.getItem("score");
-    alert(persistentScore);
     await fetch('add_score.php', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username,score: persistentScore})
     });
+    window.location.href = "index.html";
 }
 
 async function loadLeaderBoard(){
@@ -122,9 +159,13 @@ async function loadLeaderBoard(){
     const data = await response.json();
     const list = document.getElementById('leaderboard');
     list.innerHTML = '';
-      data.forEach(entry => {
+    const header = document.createElement("H1");
+    const text = document.createTextNode("Leaderboard");
+    header.appendChild(text);
+    list.appendChild(header);
+      data.forEach((entry,index) => {
         const li = document.createElement('li');
-        li.textContent = `${entry.username}: ${entry.score}`;
+        li.textContent = `${index + 1}.${entry.username}: ${entry.score}`;
         list.appendChild(li);
       });
 }
@@ -137,4 +178,5 @@ else if(window.location.pathname.endsWith('gameOver.html')){
 }
 else{
     refreshPokemon();
+    loadLeaderBoard();
 }
